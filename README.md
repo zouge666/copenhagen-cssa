@@ -1,6 +1,6 @@
 # Copenhagen CSSA
 
-哥本哈根学联官网。基于 Next.js App Router、React 和 TypeScript，使用静态预渲染页面，支持中文、英语和丹麦语，适配桌面与移动端。可通过 GitHub 导入 Vercel 部署，无需数据库、后台服务或环境变量。
+哥本哈根学联官网。基于 Next.js App Router、React 和 TypeScript，使用静态预渲染页面，支持中文、英语和丹麦语，适配桌面与移动端。
 
 ## 本地开发
 

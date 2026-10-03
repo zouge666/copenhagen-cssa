@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { site } from "@/content/site";
+import { attachBackgroundVideo } from "@/lib/background-video";
 import { localePath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/zh";
 
@@ -13,14 +14,8 @@ export function Hero({ locale, copy }: { locale: Locale; copy: Dictionary["home"
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const applyPreference = () => {
-      if (preference.matches) videoRef.current?.pause();
-      else videoRef.current?.play().catch(() => {});
-    };
-    applyPreference();
-    preference.addEventListener("change", applyPreference);
-    return () => preference.removeEventListener("change", applyPreference);
+    const video = videoRef.current;
+    if (video) return attachBackgroundVideo(video);
   }, []);
 
   return (
