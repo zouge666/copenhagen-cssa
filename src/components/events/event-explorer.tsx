@@ -4,6 +4,7 @@ import { useState } from "react";
 import { events } from "@/content/events";
 import type { EventStatus } from "@/types/content";
 import { EventCard } from "./event-card";
+import { sortEventsByPublicationDate } from "@/lib/events";
 
 export function EventExplorer({ showAll = false }: { showAll?: boolean }) {
   const [filter, setFilter] = useState<EventStatus | "all">(showAll ? "all" : "upcoming");
@@ -12,7 +13,9 @@ export function EventExplorer({ showAll = false }: { showAll?: boolean }) {
     { value: "upcoming", label: "近期活动" },
     { value: "past", label: "往期回顾" },
   ];
-  const filtered = events.filter((event) => filter === "all" || event.status === filter);
+  const filtered = sortEventsByPublicationDate(events).filter(
+    (event) => filter === "all" || event.status === filter,
+  );
   return (
     <div>
       <div className="event-toolbar">

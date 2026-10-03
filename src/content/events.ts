@@ -12,4 +12,6 @@ export const events: AssociationEvent[] = Array.from({ length: 6 }, (_, index) =
   image: null,
   paragraphs: ["活动内容待补充……", "活动安排、参与方式及相关说明待补充……"],
   registrationUrl: null,
+  publishedAt: null,
+  sourceUrl: null,
 }));

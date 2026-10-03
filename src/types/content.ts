@@ -12,6 +12,8 @@ export interface AssociationEvent {
   image: string | null;
   paragraphs: string[];
   registrationUrl: string | null;
+  publishedAt: string | null;
+  sourceUrl: string | null;
 }
 
 export interface TeamMember {

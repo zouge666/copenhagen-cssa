@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Mail, MessageCircle, ArrowUpRight, ScanLine } from "lucide-react";
+import { ArrowUpRight, MessageCircle, Handshake } from "lucide-react";
 import { PageIntro } from "@/components/ui/page-intro";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { CommunityGrid } from "@/components/contact/community-grid";
+import { WechatContact } from "@/components/contact/wechat-contact";
+import { cooperation, social } from "@/content/contact";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = { title: "联系学联" };
@@ -12,7 +16,7 @@ export default function ContactPage() {
       <PageIntro
         label="LET’S CONNECT"
         title="联系学联"
-        description="有问题、想加入，或希望合作？期待听见你的声音。"
+        description="加入社群，关注学联，也与我们一起创造更多可能。"
       />
       <section className="container section contact-layout">
         <div>
@@ -25,45 +29,68 @@ export default function ContactPage() {
             <br />
             与你相识。
           </h2>
-          <p className="contact-intro">
-            无论你刚刚来到哥本哈根，还是已经在这里生活，欢迎与我们联系。
-          </p>
-          <div className="contact-method">
-            <Mail size={23} strokeWidth={1.4} aria-hidden="true" />
-            <div>
-              <h3>学联邮箱</h3>
-              {site.email ? (
-                <a href={`mailto:${site.email}`}>
-                  {site.email}
-                  <ArrowUpRight size={16} aria-hidden="true" />
-                </a>
-              ) : (
-                <p>邮箱地址待补充</p>
-              )}
-            </div>
-          </div>
-          <div className="contact-method">
-            <MessageCircle size={23} strokeWidth={1.4} aria-hidden="true" />
-            <div>
-              <h3>微信公众号</h3>
-              <p>{site.wechatName ?? "公众号名称待补充"}</p>
-            </div>
-          </div>
+          <p className="contact-intro">{site.name}，与你在哥本哈根保持连接。</p>
+          <p className="contact-full-name">{site.englishName}</p>
         </div>
-        <div className="wechat-card">
-          <span className="eyebrow">KEEP IN TOUCH</span>
-          <h3>在微信上，找到我们</h3>
-          <div className="qr-placeholder">
-            {site.wechatQr ? (
-              <Image src={site.wechatQr} alt="学联微信公众号二维码" fill sizes="220px" />
-            ) : (
-              <>
-                <ScanLine size={56} strokeWidth={1} aria-hidden="true" />
-                <span>公众号二维码待补充</span>
-              </>
-            )}
-          </div>
-          <p>关注学联，获取活动与生活资讯。</p>
+        <article className="cooperation-card">
+          <Handshake size={30} strokeWidth={1.25} aria-hidden="true" />
+          <p className="eyebrow">PARTNER WITH US</p>
+          <h3>{cooperation.title}</h3>
+          <p>{cooperation.description}</p>
+          <span className="contact-person">{cooperation.contactRole}</span>
+          <WechatContact value={cooperation.wechat} />
+          <p className="contact-note">{cooperation.note}</p>
+        </article>
+      </section>
+      <section className="community-section muted-section">
+        <div className="container">
+          <SectionHeading
+            label="FIND YOUR COMMUNITY"
+            title="先找到你的伙伴"
+            description="联系群管理员，加入适合你的哥本哈根社群。"
+          />
+          <CommunityGrid showContactLink={false} />
+        </div>
+      </section>
+      <section className="container section">
+        <SectionHeading label="OUR CHANNELS" title="在这里，找到学联" />
+        <div className="social-channel-grid">
+          <article className="official-wechat-card">
+            <MessageCircle size={29} strokeWidth={1.3} aria-hidden="true" />
+            <p className="eyebrow">WECHAT</p>
+            <h3>微信公众号</h3>
+            <p>在微信中搜索公众号，关注活动与生活资讯。</p>
+            <WechatContact value={site.wechatName} label="公众号名称" />
+          </article>
+          <article className="xiaohongshu-card">
+            <div>
+              <p className="eyebrow">XIAOHONGSHU</p>
+              <h3>小红书</h3>
+            </div>
+            <a
+              href={social.xiaohongshuImage}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="查看小红书二维码原图"
+            >
+              <Image
+                src={social.xiaohongshuImage}
+                alt="哥本哈根CSSA小红书二维码，扫码在小红书找到学联"
+                width={1116}
+                height={389}
+                sizes="(max-width: 700px) 100vw, 800px"
+              />
+            </a>
+            <a
+              className="text-link"
+              href={social.xiaohongshuImage}
+              target="_blank"
+              rel="noreferrer"
+            >
+              查看二维码原图
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </article>
         </div>
       </section>
     </>

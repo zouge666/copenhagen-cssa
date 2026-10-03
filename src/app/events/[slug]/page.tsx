@@ -50,6 +50,12 @@ export default async function EventPage({ params }: Props) {
           {event.paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
+          {event.sourceUrl && (
+            <a href={event.sourceUrl} className="text-link" target="_blank" rel="noreferrer">
+              阅读公众号原文
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          )}
         </div>
         <aside className="event-info">
           <h3>活动信息</h3>

@@ -1,13 +1,29 @@
+export const handbook = {
+  title: "哥本哈根留学生存手册",
+  version: "2026–2027 学年版",
+  documentTitle: "哥哈留学手册_正式版_2026.11",
+  url: "https://docs.qq.com/pdf/DTGNCd0FycXF5Zkxy",
+  description: "哥本哈根中国学生学者联合会编辑组整理，涵盖行前准备、抵丹安顿、住房与校园生活。",
+  contributionPath: "哥哈生活 → 我要分享经验",
+};
+
 export const guideChapters = [
   {
     id: "before-arrival",
     number: "01",
     title: "行前准备",
     subtitle: "Before you arrive",
-    description: "从出发前的准备，开启你的哥本哈根生活。",
+    description: "从录取后的准备，到抵达丹麦的第一晚。",
     entries: [
-      { title: "证件与材料", content: "行前所需证件、学校材料与准备清单待补充……" },
-      { title: "行李与生活用品", content: "衣物、学习用品与日常用品建议待补充……" },
+      {
+        title: "录取与出发",
+        content: "手册整理了申请流程、录取后清单、机票与行李、入境材料，以及出发前的准备时间线。",
+      },
+      {
+        title: "签证办理",
+        content:
+          "手册设有签证办理章节，介绍申请流程与生物信息录入等事项。具体材料和办理步骤，请阅读对应章节。",
+      },
     ],
   },
   {
@@ -15,11 +31,22 @@ export const guideChapters = [
     number: "02",
     title: "安顿下来",
     subtitle: "Make yourself at home",
-    description: "住处、交通与日常生活，慢慢熟悉一座新城市。",
+    description: "按自己的节奏，逐步熟悉哥本哈根生活。",
     entries: [
-      { title: "住宿与租房", content: "住宿信息、找房渠道与注意事项待补充……" },
-      { title: "抵达与交通", content: "机场抵达、市内交通与骑行信息待补充……" },
-      { title: "日常事务", content: "当地登记、银行卡、电话卡等信息待补充……" },
+      {
+        title: "居留许可与黄卡",
+        content: "手册介绍居留材料与预约办理相关内容，帮助你了解抵达后的手续安排。",
+      },
+      {
+        title: "抵丹后 30 天落地时间线",
+        content:
+          "这一章节围绕抵达后的事务顺序，整理了 CPR 登记、数字信箱、银行与税务、邮寄文件检查等内容。",
+      },
+      {
+        title: "住房与租房避坑",
+        content:
+          "手册从找房渠道、合同与付款，到入住检查、租期沟通与退租，整理了住房相关经验，并提供英文沟通模板。",
+      },
     ],
   },
   {
@@ -27,10 +54,13 @@ export const guideChapters = [
     number: "03",
     title: "学习与生活",
     subtitle: "Find your rhythm",
-    description: "探索校园，也发现属于自己的城市节奏。",
+    description: "认识校园，也认识一起生活在这里的伙伴。",
     entries: [
-      { title: "校园与学习资源", content: "学校介绍、学习资源与校园生活信息待补充……" },
-      { title: "认识伙伴", content: "学联社群、交流渠道与参与方式待补充……" },
+      {
+        title: "学业与校园生活",
+        content:
+          "手册的学业与校园生活章节涵盖学籍、课程与学分、考试成绩，以及学习过程中的沟通与支持。",
+      },
     ],
   },
 ];

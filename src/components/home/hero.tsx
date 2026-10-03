@@ -58,7 +58,7 @@ export function Hero() {
       <div className="container hero-content">
         <p className="hero-kicker">
           <span />
-          COPENHAGEN CSSA
+          {site.abbreviation}
         </p>
         <h1 id="hero-heading">
           远在北欧，
