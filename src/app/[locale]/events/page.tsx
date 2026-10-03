@@ -24,7 +24,7 @@ export default async function EventsPage({ params }: Props) {
         description={t.events.description}
       />
       <AssociationUpdates locale={locale} copy={t.updates} />
-      <section className="section container">
+      <section className="section container activity-records">
         <SectionHeading
           label={t.home.eventsLabel}
           title={t.home.eventsTitle}

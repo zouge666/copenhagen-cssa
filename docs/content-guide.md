@@ -87,7 +87,7 @@ export const events: AssociationEvent[] = [
 
 ## 首屏影像
 
-当前使用本地 `public/videos/nyhavn.mp4` 与 `public/images/nyhavn-poster.jpg`。可以替换成学联自有影像，再同步更新 `site.hero` 的出处。视频建议静音、约 10 秒、H.264 MP4，使用匹配的静态封面。
+首屏与整体设计已定版，未经用户明确要求不替换。当前使用本地 `public/videos/nyhavn.mp4` 与 `public/images/nyhavn-poster.jpg`。如用户明确要求替换成学联自有影像，再同步更新 `site.hero` 的出处。视频建议静音、约 10 秒、H.264 MP4，使用匹配的静态封面。
 
 ## 语言与部门
 

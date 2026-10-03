@@ -1,0 +1,182 @@
+.overview:global(.section) {
+  padding-block: 44px 28px;
+}
+.contactCard {
+  padding: 34px 38px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+.introduction {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+.introduction > svg {
+  color: var(--wine);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.introduction :global(.eyebrow) {
+  margin-bottom: 10px;
+}
+.introduction h2 {
+  font-size: clamp(1.65rem, 2.7vw, 2.15rem);
+}
+.introduction p:not(:global(.eyebrow)) {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.fullName {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.cooperation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 24px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.cooperation h3 {
+  font-size: 1.05rem;
+}
+.cooperation p {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.channels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 42px;
+  margin-top: 24px;
+}
+.channels > div {
+  min-width: 0;
+}
+.channelLabel {
+  display: block;
+  color: var(--wine);
+  font-size: 0.8125rem;
+  margin-bottom: 13px;
+}
+.note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.email {
+  display: block;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.emailAction {
+  margin-top: 7px;
+}
+.accounts:global(.section) {
+  padding-block: 28px 50px;
+}
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.socialCard {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.socialHeading {
+  min-height: 82px;
+}
+.socialHeading h3 {
+  font-size: 1.2rem;
+}
+.socialHeading p {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
+.code {
+  position: relative;
+  display: block;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  overflow: hidden;
+  margin: 18px auto 24px;
+  background: #fff;
+}
+.code > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.xiaohongshuCode > img {
+  position: absolute;
+  width: 446.4%;
+  max-width: none;
+  height: auto;
+  left: -313.2%;
+  top: -22%;
+}
+.channelFooter {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  min-height: 76px;
+}
+.channelFooter > a {
+  margin-top: 7px;
+}
+.channelFooter :global(.copy-contact strong) {
+  font-size: 1rem;
+}
+@media (max-width: 760px) {
+  .channels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .contactCard {
+    padding: 28px;
+  }
+  .socialGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .socialHeading {
+    min-height: 0;
+  }
+  .code {
+    margin-block: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .overview:global(.section) {
+    padding-block: 30px 20px;
+  }
+  .accounts:global(.section) {
+    padding-block: 20px 36px;
+  }
+  .contactCard,
+  .socialCard {
+    padding: 24px;
+  }
+  .introduction > svg {
+    display: none;
+  }
+  .code {
+    width: 180px;
+    height: 180px;
+  }
+}

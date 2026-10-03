@@ -22,20 +22,42 @@ export function AssociationUpdates({
       <div className="updates-grid">
         {sorted.map((update) => (
           <article key={update.id} className="update-card">
-            <a
-              className={`update-image update-${update.imageShape}`}
-              href={update.image}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={`${update.title[locale]} · ${copy.poster}`}
-            >
-              <Image
-                src={update.image}
-                alt={update.title[locale]}
-                fill
-                sizes="(max-width: 760px) 100vw, 50vw"
-              />
-            </a>
+            {update.imageShape === "recruitment" ? (
+              <Link
+                href={localePath(locale, update.href)}
+                className="update-image update-recruitment"
+                aria-label={update.title[locale]}
+              >
+                <div className="recruitment-cover-copy">
+                  <span>CSSA-COPENHAGEN · 2026</span>
+                  <strong>{update.coverTitle?.[locale]}</strong>
+                  <span>JOIN US!</span>
+                </div>
+                <Image
+                  src={update.image}
+                  alt=""
+                  width={500}
+                  height={629}
+                  className="recruitment-cover-art"
+                  sizes="(max-width: 760px) 45vw, 25vw"
+                />
+              </Link>
+            ) : (
+              <a
+                className={`update-image update-${update.imageShape}`}
+                href={update.image}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`${update.title[locale]} · ${copy.poster}`}
+              >
+                <Image
+                  src={update.image}
+                  alt={update.title[locale]}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 50vw"
+                />
+              </a>
+            )}
             <div className="update-content">
               <time dateTime={update.publishedAt}>
                 {formatPublicationDate(update.publishedAt, locale)}

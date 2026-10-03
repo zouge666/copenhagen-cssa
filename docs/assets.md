@@ -40,4 +40,4 @@
 - Buddy Program：`public/images/events/buddy-program.webp`、`buddy-introduction.webp`、`buddy-participants.png`、`buddy-timeline.webp`、`buddy-registration.webp`。报名海报作为已结束项目的存档展示。
 - 中秋祝福海报：`public/images/updates/mid-autumn-2026.webp`，保留完整画幅，可点击查看原图。
 - 微信公众号二维码：联系页使用 `site.wechatQr` 当前指定的 `public/images/wechat-official-qr.png`；`public/images/wechat-qr.webp` 来自2024年学联简介，保留为原始素材。
-- 迎新邀请函使用已有新港视频封面作城市示意，未将该图标为活动现场照片。学联招新动态使用维护者提供的活动照片拼图。
+- 迎新邀请函使用已有新港视频封面作城市示意，未将该图标为活动现场照片。学联招新动态使用招新 HTML 中的原始人物插画（`public/images/updates/recruitment-2026.webp`），配以页面文字排版；活动拼图继续保留在往期活动相册。

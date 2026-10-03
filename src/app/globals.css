@@ -2885,3 +2885,85 @@ h2 {
     font-size: 1.7rem;
   }
 }
+
+/* Spacing between the homepage introduction, news and activity records. */
+.welcome-section {
+  padding-bottom: 40px;
+}
+.welcome-section + .association-updates {
+  padding-top: 32px;
+}
+.association-updates {
+  padding-bottom: 36px;
+}
+.association-updates + .events-section,
+.association-updates + .activity-records {
+  padding-top: 44px;
+}
+.update-recruitment {
+  overflow: hidden;
+  background: #f2f6fb;
+}
+.recruitment-cover-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  height: 100%;
+  padding: 28px;
+  color: var(--wine);
+}
+.recruitment-cover-copy > span:first-child {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.recruitment-cover-copy strong {
+  display: block;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-block: 18px;
+  overflow-wrap: anywhere;
+}
+.recruitment-cover-copy > span:last-child {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.update-recruitment .recruitment-cover-art {
+  position: absolute;
+  width: 45%;
+  height: calc(100% - 28px);
+  right: 12px;
+  bottom: 0;
+  object-fit: contain;
+  object-position: bottom;
+}
+@media (max-width: 640px) {
+  .welcome-section {
+    padding-bottom: 28px;
+  }
+  .welcome-section + .association-updates {
+    padding-top: 24px;
+  }
+  .association-updates {
+    padding-bottom: 28px;
+  }
+  .association-updates + .events-section,
+  .association-updates + .activity-records {
+    padding-top: 32px;
+  }
+  .recruitment-cover-copy {
+    padding: 22px;
+  }
+  .recruitment-cover-copy strong {
+    font-size: 1.65rem;
+  }
+  .recruitment-cover-copy > span:first-child {
+    font-size: 0.55rem;
+  }
+}

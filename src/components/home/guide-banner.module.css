@@ -1,0 +1,123 @@
+.banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  padding: 52px 60px;
+  background: var(--wine);
+  color: #fff;
+}
+.label {
+  margin-bottom: 24px;
+  color: #dfb9c0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+.title {
+  font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.5;
+}
+.title span {
+  display: block;
+}
+.description {
+  margin-top: 22px;
+  color: #ead6da;
+  font-size: 0.875rem;
+  line-height: 1.9;
+}
+.action {
+  display: inline-flex;
+  margin-top: 28px;
+}
+.chapter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-width: 0;
+  border-left: 1px solid #ffffff26;
+  padding-left: 48px;
+  color: #dfb9c0;
+  text-align: center;
+}
+.chapter > svg {
+  width: 102px;
+  height: 102px;
+  margin-bottom: 26px;
+}
+.chapter strong {
+  display: block;
+  font-size: clamp(1.6rem, 2.7vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.chapter strong span {
+  display: block;
+}
+.chapter > p {
+  margin-top: 22px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 1000px) {
+  .banner {
+    padding: 42px;
+    gap: 32px;
+  }
+  .chapter {
+    padding-left: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .banner {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 32px;
+    gap: 30px;
+  }
+  .chapter {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-left: 0;
+    border-top: 1px solid #ffffff26;
+    padding: 28px 0 0;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .chapter > svg {
+    width: 58px;
+    height: 58px;
+    margin: 0;
+  }
+  .chapter strong {
+    font-size: 1.6rem;
+  }
+  .chapter > p {
+    width: 100%;
+    margin: 0;
+  }
+  .title {
+    font-size: 1.65rem;
+  }
+}
+@media (max-width: 360px) {
+  .banner {
+    padding: 25px;
+  }
+  .chapter {
+    gap: 16px;
+  }
+  .chapter strong {
+    font-size: 1.4rem;
+  }
+  .chapter > svg {
+    width: 45px;
+    height: 45px;
+  }
+}

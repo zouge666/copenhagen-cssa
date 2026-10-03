@@ -7,7 +7,8 @@ type AssociationUpdate = {
   title: LocalizedText;
   summary: LocalizedText;
   image: string;
-  imageShape: "portrait" | "landscape";
+  imageShape: "portrait" | "landscape" | "recruitment";
+  coverTitle?: LocalizedText;
   href: string;
   external: boolean;
 };
@@ -25,8 +26,9 @@ export const updates: AssociationUpdate[] = [
       en: "Apply to one or more of our four departments. Read the responsibilities, eligibility and interview process. Applications close on 19 October at 23:59.",
       da: "Søg én eller flere af vores fire afdelinger. Læs om opgaver, krav og samtaleforløb. Ansøgningsfristen er den 19. oktober kl. 23:59.",
     },
-    image: "/images/memories/community.png",
-    imageShape: "landscape",
+    image: "/images/updates/recruitment-2026.webp",
+    imageShape: "recruitment",
+    coverTitle: { zh: "我们招新啦", en: "We’re recruiting", da: "Bliv en del af holdet" },
     href: "/join",
     external: false,
   },

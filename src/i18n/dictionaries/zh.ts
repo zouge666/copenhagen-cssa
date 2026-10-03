@@ -8,7 +8,7 @@ export const zh = {
   nav: {
     home: "首页",
     about: "关于学联",
-    events: "活动与动态",
+    events: "活动拾光",
     guide: "新生指南",
     join: "加入我们",
     contact: "联系学联",
@@ -91,7 +91,7 @@ export const zh = {
   },
   events: {
     label: "活动",
-    title: "活动与动态",
+    title: "活动拾光",
     description: "文化、体育、学术交流与新生相聚。",
     all: "全部活动",
     upcoming: "近期活动",
@@ -171,9 +171,13 @@ export const zh = {
       "欢迎分享在丹麦生活、工作与学习的经验。参与方式：学联公众号菜单栏「哥哈生活 → 我要分享经验」。",
     corrections: "如有手册修改建议，欢迎联系我们，协助修正与勘误。",
     bannerTitle: "哥本哈根留学指南",
-    bannerDescription: "查阅完整留学手册，联系新生社群。",
+    bannerDescription: "行前准备、安顿下来、学习与生活。一份指南，陪你慢慢熟悉哥本哈根。",
     bannerLink: "查看新生指南",
     originalLanguage: "手册原文为中文。",
+    bannerLabel: "NEW TO COPENHAGEN?",
+    bannerHeadline: ["初来乍到？", "从这里，开始你的新生活。"],
+    bannerChapter: ["YOUR NEXT", "CHAPTER."],
+    bannerChapterCaption: "哥本哈根 · 新生指南",
   },
   contact: {
     label: "联系",
@@ -214,6 +218,7 @@ export const zh = {
     email: "合作邮箱",
     writeEmail: "发送邮件",
     wechatQrAlt: "哥本哈根CSSA微信公众号二维码",
+    xiaohongshuDescription: "扫描二维码，在小红书关注学联。",
   },
   join: {
     label: "参与学联",

@@ -189,9 +189,14 @@ export const da: Dictionary = {
       "Del dine erfaringer med at bo, arbejde eller studere i Danmark. Vælg “哥哈生活 → 我要分享经验” i CSSA's WeChat-menu for at bidrage.",
     corrections: "Kontakt os med forslag og rettelser til håndbogen.",
     bannerTitle: "Din studieguide til København",
-    bannerDescription: "Læs håndbogen, og find grupper for nye studerende.",
+    bannerDescription:
+      "Før afrejse, ved ankomst og i studielivet. En guide, der hjælper dig med at finde dig til rette i København.",
     bannerLink: "Åbn studieguiden",
     originalLanguage: "Den originale håndbog er på kinesisk.",
+    bannerLabel: "NY I KØBENHAVN?",
+    bannerHeadline: ["Lige ankommet?", "Start dit nye kapitel her."],
+    bannerChapter: ["DIT NÆSTE", "KAPITEL."],
+    bannerChapterCaption: "KØBENHAVN · STUDIEGUIDE",
   },
   contact: {
     label: "Kontakt",
@@ -232,6 +237,7 @@ export const da: Dictionary = {
     email: "E-mail om samarbejde",
     writeEmail: "Send en e-mail",
     wechatQrAlt: "QR-kode til CSSA Københavns officielle WeChat-konto",
+    xiaohongshuDescription: "Scan QR-koden for at følge CSSA på Xiaohongshu.",
   },
   join: {
     label: "Vær med",
