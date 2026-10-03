@@ -1,4 +1,14 @@
 import type { AssociationEvent } from "../types/content";
+import type { Locale } from "@/i18n/config";
+
+export function formatPublicationDate(value: string, locale: Locale) {
+  return new Intl.DateTimeFormat({ zh: "zh-CN", en: "en-GB", da: "da-DK" }[locale], {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value.slice(0, 10)}T12:00:00Z`));
+}
 
 function publicationTime(value: string | null) {
   if (!value) return null;

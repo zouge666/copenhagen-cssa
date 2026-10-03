@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
+import type { Dictionary } from "@/i18n/dictionaries/zh";
 
-export function WechatContact({ value, label = "微信号" }: { value: string; label?: string }) {
+export function WechatContact({
+  value,
+  copy,
+  label = copy.wechat,
+}: {
+  value: string;
+  copy: Dictionary["common"];
+  label?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
 
-  async function copy() {
+  async function handleCopy() {
     try {
       await navigator.clipboard.writeText(value);
       setStatus("copied");
@@ -23,19 +32,23 @@ export function WechatContact({ value, label = "微信号" }: { value: string; l
       </div>
       <button
         type="button"
-        onClick={copy}
+        onClick={handleCopy}
         className="copy-button"
-        aria-label={`复制${label} ${value}`}
+        aria-label={`${copy.copy} ${label} ${value}`}
       >
         {status === "copied" ? (
           <Check size={15} aria-hidden="true" />
         ) : (
           <Copy size={15} aria-hidden="true" />
         )}
-        {status === "copied" ? "已复制" : "复制"}
+        {status === "copied" ? copy.copied : copy.copy}
       </button>
       <span className="copy-feedback" data-status={status} role="status">
-        {status === "copied" ? `已复制${label}` : status === "failed" ? "请选中并手动复制。" : ""}
+        {status === "copied"
+          ? `${copy.copied} ${label}`
+          : status === "failed"
+            ? copy.manualCopy
+            : ""}
       </span>
     </div>
   );

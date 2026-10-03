@@ -2,14 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react";
 import type { AssociationEvent } from "@/types/content";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/zh";
+import { formatPublicationDate } from "@/lib/events";
 
-export function EventCard({ event }: { event: AssociationEvent }) {
+export function EventCard({
+  event,
+  locale,
+  copy,
+}: {
+  event: AssociationEvent;
+  locale: Locale;
+  copy: Dictionary["events"];
+}) {
   return (
     <article className="event-card">
       <Link
-        href={`/events/${event.slug}`}
+        href={localePath(locale, `/events/${event.slug}`)}
         className="event-cover"
-        aria-label={`查看${event.title}`}
+        aria-label={event.title}
       >
         {event.image ? (
           <Image
@@ -22,11 +33,11 @@ export function EventCard({ event }: { event: AssociationEvent }) {
           <div className={`event-placeholder tone-${Number(event.number) % 3}`}>
             <span className="event-placeholder-label">COPENHAGEN CSSA / EVENTS</span>
             <span className="event-number">{event.number}</span>
-            <span className="event-image-label">活动图片待补充</span>
+            <span className="event-image-label">{copy.image}</span>
           </div>
         )}
         <span className="event-status">
-          {event.status === "upcoming" ? "近期活动" : "往期回顾"}
+          {event.status === "upcoming" ? copy.upcoming : copy.past}
         </span>
         <span className="event-cover-icon">
           <ArrowUpRight size={21} aria-hidden="true" />
@@ -34,8 +45,16 @@ export function EventCard({ event }: { event: AssociationEvent }) {
       </Link>
       <div className="event-card-content">
         <p className="event-category">{event.category}</p>
+        {event.publishedAt && (
+          <p className="publication-date">
+            {copy.published}{" "}
+            <time dateTime={event.publishedAt}>
+              {formatPublicationDate(event.publishedAt, locale)}
+            </time>
+          </p>
+        )}
         <h3>
-          <Link href={`/events/${event.slug}`}>{event.title}</Link>
+          <Link href={localePath(locale, `/events/${event.slug}`)}>{event.title}</Link>
         </h3>
         <p>{event.summary}</p>
         <div className="event-meta">

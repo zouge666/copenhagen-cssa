@@ -1,0 +1,184 @@
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: min(1160px, calc(100% - 64px));
+  min-height: 96px;
+  margin-inline: auto;
+}
+.inner > :global(.brand) {
+  flex: 0 1 310px;
+}
+.inner :global(.brand-copy strong) {
+  white-space: nowrap;
+}
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.desktopNav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 96px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.desktopNav a:hover,
+.desktopNav .active {
+  color: var(--wine);
+}
+.desktopNav .active::after {
+  content: "";
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  width: 16px;
+  height: 2px;
+  background: var(--wine);
+  transform: translateX(-50%);
+}
+.inner .contact {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 9px 14px;
+  gap: 8px;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+.menuToggle,
+.mobileNav {
+  display: none;
+}
+@media (min-width: 768px) and (max-width: 1040px) {
+  .inner {
+    width: calc(100% - 48px);
+    gap: 14px;
+    min-height: 84px;
+  }
+  .inner > :global(.brand) {
+    flex-basis: 250px;
+    gap: 9px;
+  }
+  .inner :global(.brand-logo) {
+    width: 44px;
+    height: 44px;
+  }
+  .inner :global(.brand-copy strong) {
+    font-size: 1rem;
+  }
+  .inner :global(.brand-full-name) {
+    max-width: 190px;
+    font-size: 0.6rem;
+  }
+  .desktopNav {
+    gap: 16px;
+  }
+  .desktopNav a {
+    min-height: 84px;
+    font-size: 0.8125rem;
+  }
+  .inner .contact {
+    padding-inline: 11px;
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 880px) {
+  .inner {
+    gap: 10px;
+  }
+  .inner > :global(.brand) {
+    flex-basis: 210px;
+  }
+  .inner :global(.brand-full-name) {
+    max-width: 150px;
+  }
+  .desktopNav {
+    gap: 12px;
+  }
+  .inner .contact > svg {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .inner {
+    width: calc(100% - 40px);
+    min-height: 84px;
+    gap: 10px;
+  }
+  .inner > :global(.brand) {
+    flex: 1;
+    gap: 8px;
+  }
+  .inner :global(.brand-logo) {
+    width: 40px;
+    height: 40px;
+  }
+  .inner :global(.brand-copy strong) {
+    font-size: 0.95rem;
+  }
+  .inner :global(.brand-full-name) {
+    max-width: 210px;
+    font-size: 0.6rem;
+    line-height: 1.35;
+  }
+  .desktopNav,
+  .inner .contact {
+    display: none;
+  }
+  .menuToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    min-height: 40px;
+    padding: 3px;
+    background: transparent;
+    color: var(--ink);
+  }
+  .menuToggle svg {
+    width: 22px;
+    height: 22px;
+  }
+  .mobileNav {
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 20px 20px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+    box-shadow: 0 15px 25px #00000008;
+  }
+  .mobileNav a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-block: 14px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.875rem;
+  }
+  .mobileNav a:last-child {
+    border-bottom: 0;
+  }
+  .mobileNav a[aria-current="page"] {
+    color: var(--wine);
+  }
+}
+@media (max-width: 360px) {
+  .inner {
+    gap: 6px;
+  }
+  .inner :global(.brand-copy strong) {
+    font-size: 0.82rem;
+  }
+}

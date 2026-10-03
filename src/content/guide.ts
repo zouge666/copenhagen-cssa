@@ -7,7 +7,7 @@ export const handbook = {
   contributionPath: "哥哈生活 → 我要分享经验",
 };
 
-export const guideChapters = [
+export const guideChapters: GuideChapter[] = [
   {
     id: "before-arrival",
     number: "01",
@@ -64,3 +64,10 @@ export const guideChapters = [
     ],
   },
 ];
+
+export function getGuideChapters(locale: Locale) {
+  return locale === "zh" ? guideChapters : translatedGuideChapters[locale];
+}
+import type { GuideChapter } from "@/types/content";
+import type { Locale } from "@/i18n/config";
+import { translatedGuideChapters } from "./guide-translations";

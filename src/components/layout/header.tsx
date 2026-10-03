@@ -6,8 +6,14 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { navigation } from "@/content/site";
 import { Brand } from "./brand";
+import { LanguageSwitcher } from "./language-switcher";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/zh";
+import styles from "./header.module.css";
 
-export function Header() {
+const headerNavigation = navigation.filter((item) => item.key !== "join");
+
+export function Header({ locale, copy }: { locale: Locale; copy: Dictionary }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -26,32 +32,41 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <div className="container header-inner">
-        <Brand />
-        <nav className="desktop-nav" aria-label="主导航">
-          {navigation.map((item) => (
+      <div className={styles.inner}>
+        <Brand locale={locale} copy={copy} />
+        <nav className={styles.desktopNav} aria-label={copy.a11y.mainNav}>
+          {headerNavigation.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={localePath(locale, item.href)}
               className={
-                pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
-                  ? "active"
+                pathname === localePath(locale, item.href) ||
+                (item.href !== "/" && pathname.startsWith(localePath(locale, item.href)))
+                  ? styles.active
                   : ""
               }
-              aria-current={pathname === item.href ? "page" : undefined}
+              aria-current={pathname === localePath(locale, item.href) ? "page" : undefined}
             >
-              {item.label}
+              {copy.nav[item.key]}
             </Link>
           ))}
         </nav>
-        <Link href="/contact" className="button button-primary header-contact">
-          联系学联
+        <Link
+          href={localePath(locale, "/contact")}
+          className={`button button-primary ${styles.contact}`}
+        >
+          {copy.nav.contact}
           <ArrowUpRight size={15} aria-hidden="true" />
         </Link>
+        <LanguageSwitcher
+          locale={locale}
+          label={copy.a11y.language}
+          onChange={() => setOpen(false)}
+        />
         <button
           ref={toggleRef}
-          className="menu-toggle"
-          aria-label={open ? "关闭导航" : "打开导航"}
+          className={styles.menuToggle}
+          aria-label={open ? copy.a11y.closeMenu : copy.a11y.openMenu}
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
@@ -59,15 +74,15 @@ export function Header() {
           {open ? <X /> : <Menu />}
         </button>
         {open && (
-          <nav id="mobile-navigation" className="mobile-nav" aria-label="移动端主导航">
-            {[...navigation, { href: "/contact", label: "联系学联" }].map((item) => (
+          <nav id="mobile-navigation" className={styles.mobileNav} aria-label={copy.a11y.mobileNav}>
+            {[...headerNavigation, { href: "/contact", key: "contact" as const }].map((item) => (
               <Link
-                href={item.href}
+                href={localePath(locale, item.href)}
                 key={item.href}
                 onClick={() => setOpen(false)}
-                aria-current={pathname === item.href ? "page" : undefined}
+                aria-current={pathname === localePath(locale, item.href) ? "page" : undefined}
               >
-                {item.label}
+                {copy.nav[item.key]}
                 <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
             ))}

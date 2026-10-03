@@ -4,12 +4,13 @@ export const site = {
   englishName: "Chinese Students & Scholars Association in Copenhagen",
   abbreviation: "CSSA-COPENHAGEN",
   logo: "/images/cssa-logo.jpg",
-  description: "连接哥本哈根的中国学生与学者，分享留学生活，遇见同行伙伴。",
+  description: "哥本哈根学联官网：活动资讯、留学指南、社群与团队。",
   introduction:
-    "我们希望连接在哥本哈根学习、研究和生活的中国学生与学者。在这里，分享经验、交流想法，也一起探索这座城市，让异国的日常多一份熟悉与温暖。",
-  email: null as string | null,
+    "丹麦哥本哈根中国学生学者联合会（CSSA-Copenhagen）成立于2024年3月，是在中国驻丹麦大使馆支持与指导下的非政治、非宗教、非营利性学生社团。学联服务在哥本哈根学习和生活的中国学生与学者，开展学术交流、文体活动与新生互助。",
+  email: "cssa.copenhagen@gmail.com",
   wechatName: "哥本哈根CSSA",
-  wechatQr: null as string | null,
+  wechatQr: "/images/wechat-official-qr.png",
+  sourceUrl: "https://mp.weixin.qq.com/s/XXIW6NttsNAFeb6rBgenVw",
   hero: {
     poster: "/images/nyhavn-poster.jpg",
     video: "/videos/nyhavn.mp4",
@@ -20,9 +21,9 @@ export const site = {
 };
 
 export const navigation = [
-  { label: "首页", href: "/" },
-  { label: "关于学联", href: "/about" },
-  { label: "活动拾光", href: "/events" },
-  { label: "新生指南", href: "/guide" },
-  { label: "加入我们", href: "/join" },
-];
+  { key: "home", href: "/" },
+  { key: "about", href: "/about" },
+  { key: "events", href: "/events" },
+  { key: "guide", href: "/guide" },
+  { key: "join", href: "/join" },
+] as const;

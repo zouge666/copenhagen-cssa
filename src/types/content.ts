@@ -14,12 +14,34 @@ export interface AssociationEvent {
   registrationUrl: string | null;
   publishedAt: string | null;
   sourceUrl: string | null;
+  schedule?: { time: string; description: string }[];
+  gallery?: { src: string; width: number; height: number }[];
+  galleryIsChinese?: boolean;
+  translations?: Partial<
+    Record<
+      Exclude<Locale, "zh">,
+      Pick<
+        AssociationEvent,
+        "title" | "category" | "date" | "location" | "summary" | "paragraphs" | "schedule"
+      >
+    >
+  >;
 }
 
 export interface TeamMember {
   id: string;
   name: string | null;
-  role: string;
+  role: string | null;
   university: string | null;
   photo: string | null;
 }
+
+export interface GuideChapter {
+  id: string;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  entries: { title: string; content: string }[];
+}
+import type { Locale } from "@/i18n/config";

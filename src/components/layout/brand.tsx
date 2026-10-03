@@ -1,18 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/content/site";
+import { localePath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/zh";
 
-export function Brand({ light = false }: { light?: boolean }) {
+export function Brand({
+  locale,
+  copy,
+  light = false,
+}: {
+  locale: Locale;
+  copy: Dictionary;
+  light?: boolean;
+}) {
   return (
     <Link
-      href="/"
+      href={localePath(locale)}
       className={`brand ${light ? "brand-light" : ""}`}
-      aria-label={`${site.shortName} · 返回首页`}
+      aria-label={`${copy.site.shortName} · ${copy.a11y.homeLink}`}
     >
-      <Image className="brand-logo" src={site.logo} alt="哥本哈根学联徽标" width={62} height={62} />
+      <Image className="brand-logo" src={site.logo} alt={copy.a11y.logo} width={62} height={62} />
       <span className="brand-copy">
-        <strong>{site.shortName}</strong>
-        <span>{site.abbreviation}</span>
+        <strong>{copy.site.shortName}</strong>
+        <span className="brand-full-name">{copy.site.fullName}</span>
       </span>
     </Link>
   );

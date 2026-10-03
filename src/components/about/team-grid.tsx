@@ -1,31 +1,31 @@
 import Image from "next/image";
 import { UserRound } from "lucide-react";
 import { team } from "@/content/team";
+import type { Dictionary } from "@/i18n/dictionaries/zh";
 
-export function TeamGrid() {
+export function TeamGrid({ copy }: { copy: Dictionary["team"] }) {
   return (
     <div className="team-grid">
-      {team.map((member, index) => (
+      {team.map((member) => (
         <article className="team-card" key={member.id}>
           <div className="team-photo">
             {member.photo ? (
               <Image
                 src={member.photo}
-                alt={member.name ?? "学联成员"}
+                alt={member.name ?? copy.member}
                 fill
                 sizes="(max-width: 700px) 50vw, 25vw"
               />
             ) : (
               <>
-                <span className="team-index">0{index + 1}</span>
                 <UserRound size={46} strokeWidth={1} aria-hidden="true" />
-                <span>成员照片待补充</span>
+                <span>{copy.photo}</span>
               </>
             )}
           </div>
-          <p className="team-role">{member.role}</p>
-          <h3>{member.name ?? "姓名待补充"}</h3>
-          <p className="team-university">{member.university ?? "学校 / 专业待补充"}</p>
+          <p className="team-role">{member.role ?? copy.role}</p>
+          <h3>{member.name ?? copy.name}</h3>
+          <p className="team-university">{member.university ?? copy.university}</p>
         </article>
       ))}
     </div>
